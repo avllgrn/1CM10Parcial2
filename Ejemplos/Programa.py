@@ -3,7 +3,11 @@ import os
 if __name__ == '__main__':
     os.system('cls')
 
-    i = 10
-    while i >= 0:               # Mientras el valor de i sea mayor o igual a cero,
+    ini = float(input('Ingresa inicio del contador '))
+    fin = float(input('Ingresa fin del contador '))
+    inc = float(input('Ingresa incremento del contador '))
+
+    i = ini                     # Valor inicial de la variable contador
+    while i < fin:              # Mientras el valor de i sea menor al fin,
         print(f' {i} ')         # Se pinta el valor de la variable
-        i = i-1                 # Con cada vuelta del ciclo, la variable decrementa su valor en uno
+        i = i+inc               # Con cada vuelta del ciclo, la variable incrementa su valor en inc
