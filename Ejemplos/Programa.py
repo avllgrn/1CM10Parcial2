@@ -1,48 +1,43 @@
 import os
 import math
+import matplotlib.pyplot
 
 def gradosAradianes(grados):
     return grados * math.pi / 180
 
 def fDeXseno(xGrados):
-    xRadianes = gradosAradianes(xGrados)                # Se convierte a radianes los grados recibidos
-    return math.sin(xRadianes)                          # Se contesta el seno de los radianes convertidos
+    xRadianes = gradosAradianes(xGrados)                    # Se convierte a radianes los grados recibidos
+    return math.sin(xRadianes)                              # Se contesta el seno de los radianes convertidos
 
-def tabla1Ascendente(ini, fin, inc):
-    print('\n x\t| f(x) = sen(x)\n')
-    xGrados = ini                                       # Valor inicial de la variable contador
-    while xGrados < fin:                                # Mientras el valor de xGrados sea menor al fin,
-        print(f' {xGrados}\t| {fDeXseno(xGrados)} ')    # Se pinta el valor de la variable y su evaluacion en fDeXseno
-        xGrados = xGrados+inc                           # Con cada vuelta del ciclo, la variable incrementa su valor en inc
+def grafica():
+    ini = float(input('Ingresa inicio de la gráfica '))
+    fin = float(input('Ingresa fin de la gráfica '))
+    inc = math.fabs( float(input('Ingresa incremento de la tabla ')) )
 
-def tabla1Descendente(ini, fin, dec):
-    print('\n x\t| f(x) = sen(x)\n')
-    xGrados = ini                                       # Valor inicial de la variable contador
-    while xGrados > fin:                                # Mientras el valor de xGrados sea mayor al fin,
-        print(f' {xGrados}\t| {fDeXseno(xGrados)} ')    # Se pinta el valor de la variable y su evaluacion en fDeXseno
-        xGrados = xGrados-dec                           # Con cada vuelta del ciclo, la variable decrementa su valor en dec
+    if inc!=0:                                              # Si hay incremento, 
 
-def tabla2():
-    ini = float(input('Ingresa inicio de la tabla '))
-    fin = float(input('Ingresa fin de la tabla '))
-    
-    if ini < fin:
-        inc = float(input('Ingresa incremento de la tabla '))
+        X = []                                              # Se define una lista vacía, para los valores que tomará x
+        Y = []                                              # Se define una lista vacía, para los valores que tomará y
 
-        if inc>0:                                       # Si el incremento es positivo, 
-            tabla1Ascendente(ini, fin, inc)             # se invoca la funcion que cuenta
-        else:
-            print('Error! Se genera ciclo infinito')
+        # Contador para generar los valores de la gráfica
+        i = ini                                             # Se inicializa el contador
+        while i<fin:                                        # Se condiciona el final del contador
+
+            X.append( i )                                   # Se agrega el valor actual del contador i,                      a la lista X
+            Y.append( fDeXseno(i) )                         # Se agrega el valor actual del contador i evaluado en fDeXseno, a la lista Y 
+
+            i = i+inc                                       # Se incrementa el contador
+
+
+        # Después de generar los valores,
+        matplotlib.pyplot.plot(X,Y)                         # Se genera la gráfica (en memoria)
+        matplotlib.pyplot.show()                            # Se muestra la gráfica
 
     else:
-        dec = float(input('Ingresa decremento de la tabla '))
+        print('Error! Se genera ciclo infinito')
 
-        if dec>0:                                       # Si el decremento es positivo, 
-            tabla1Descendente(ini, fin, dec)            # se invoca la funcion que cuenta
-        else:
-            print('Error! Se genera ciclo infinito')
 
 if __name__ == '__main__':
     os.system('cls')
 
-    tabla2()
+    grafica()
