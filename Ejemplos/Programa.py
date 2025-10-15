@@ -6,4 +6,4 @@ if __name__ == '__main__':
     i = 0
     while True:                 # Mientras True sea verdadero
         print(f' {i} ')         # Se pinta el valor de la variable
-        i = i+1                 # Con cada vuelta del ciclo, la variable incrementa su valor en uno
+        i = i-1                 # Con cada vuelta del ciclo, la variable decrementa su valor en uno
