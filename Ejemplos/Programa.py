@@ -41,9 +41,5 @@ def menu():
 if __name__ == '__main__':
     os.system('cls')
 
-    while True:             # Ciclo infinito, mientras True sea verdadero
-
-        if menu() == '3':   # Si la funcion menu retorna tres, se rompe/termina el ciclo infinito;
-            break
-        else:               # si no, se pide un teclazo y continúa el ciclo infinito 
-            input('\n\nPresiona una tecla para continuar...')
+    while menu() != '3':   # Mientras la funcion menu retorne valores distintos de tres, continúa el ciclo
+        input('\n\nPresiona una tecla para continuar...')
