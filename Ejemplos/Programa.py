@@ -1,43 +1,48 @@
 import os
+import math
 
-def fDeXcuadrada(x):
-    return x**2
+def gradosAradianes(grados):
+    return grados * math.pi / 180
+
+def fDeXseno(xGrados):
+    xRadianes = gradosAradianes(xGrados)                # Se convierte a radianes los grados recibidos
+    return math.sin(xRadianes)                          # Se contesta el seno de los radianes convertidos
 
 def tabla1Ascendente(ini, fin, inc):
-    print('\n x\t| f(x) = x^2\n')
-    x = ini                                     # Valor inicial de la variable contador
-    while x < fin:                              # Mientras el valor de x sea menor al fin,
-        print(f' {x}\t| {fDeXcuadrada(x)} ')    # Se pinta el valor de la variable y su evaluacion en fDeXcuadrada
-        x = x+inc                               # Con cada vuelta del ciclo, la variable incrementa su valor en inc
+    print('\n x\t| f(x) = sen(x)\n')
+    xGrados = ini                                       # Valor inicial de la variable contador
+    while xGrados < fin:                                # Mientras el valor de xGrados sea menor al fin,
+        print(f' {xGrados}\t| {fDeXseno(xGrados)} ')    # Se pinta el valor de la variable y su evaluacion en fDeXseno
+        xGrados = xGrados+inc                           # Con cada vuelta del ciclo, la variable incrementa su valor en inc
 
 def tabla1Descendente(ini, fin, dec):
-    print('\n x\t| f(x) = x^2\n')
-    x = ini                                     # Valor inicial de la variable contador
-    while x > fin:                              # Mientras el valor de x sea mayor al fin,
-        print(f' {x}\t| {fDeXcuadrada(x)} ')    # Se pinta el valor de la variable y su evaluacion en fDeXcuadrada
-        x = x-dec                               # Con cada vuelta del ciclo, la variable decrementa su valor en dec
+    print('\n x\t| f(x) = sen(x)\n')
+    xGrados = ini                                       # Valor inicial de la variable contador
+    while xGrados > fin:                                # Mientras el valor de xGrados sea mayor al fin,
+        print(f' {xGrados}\t| {fDeXseno(xGrados)} ')    # Se pinta el valor de la variable y su evaluacion en fDeXseno
+        xGrados = xGrados-dec                           # Con cada vuelta del ciclo, la variable decrementa su valor en dec
 
-def tabla1():
-    ini = float(input('Ingresa inicio del contador '))
-    fin = float(input('Ingresa fin del contador '))
+def tabla2():
+    ini = float(input('Ingresa inicio de la tabla '))
+    fin = float(input('Ingresa fin de la tabla '))
     
     if ini < fin:
-        inc = float(input('Ingresa incremento del contador '))
+        inc = float(input('Ingresa incremento de la tabla '))
 
-        if inc>0:                               # Si el incremento es positivo, 
-            tabla1Ascendente(ini, fin, inc)     # se invoca la funcion que cuenta
+        if inc>0:                                       # Si el incremento es positivo, 
+            tabla1Ascendente(ini, fin, inc)             # se invoca la funcion que cuenta
         else:
             print('Error! Se genera ciclo infinito')
 
     else:
-        dec = float(input('Ingresa decremento del contador '))
+        dec = float(input('Ingresa decremento de la tabla '))
 
-        if dec>0:                               # Si el decremento es positivo, 
-            tabla1Descendente(ini, fin, dec)    # se invoca la funcion que cuenta
+        if dec>0:                                       # Si el decremento es positivo, 
+            tabla1Descendente(ini, fin, dec)            # se invoca la funcion que cuenta
         else:
             print('Error! Se genera ciclo infinito')
 
 if __name__ == '__main__':
     os.system('cls')
 
-    tabla1()
+    tabla2()
