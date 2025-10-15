@@ -5,9 +5,9 @@ if __name__ == '__main__':
 
     ini = float(input('Ingresa inicio del contador '))
     fin = float(input('Ingresa fin del contador '))
-    inc = float(input('Ingresa incremento del contador '))
+    dec = float(input('Ingresa decremento del contador '))
 
     i = ini                     # Valor inicial de la variable contador
-    while i < fin:              # Mientras el valor de i sea menor al fin,
+    while i > fin:              # Mientras el valor de i sea mayor al fin,
         print(f' {i} ')         # Se pinta el valor de la variable
-        i = i+inc               # Con cada vuelta del ciclo, la variable incrementa su valor en inc
+        i = i-dec               # Con cada vuelta del ciclo, la variable decrementa su valor en dec
