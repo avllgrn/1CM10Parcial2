@@ -1,21 +1,20 @@
 import os
 
-def sumaDesdeIniHastaFin(ini, fin):
-    s = 0       # La suma acumulada DEBE comenzar en cero
+def factorial(n):
+    f = 1       # La multiplicación acumulada DEBE comenzar en uno
 
-    i = ini
-    while i<=fin: # Contador en rango [ini, fin)
-        s = s+i
+    i = 1
+    while i<=n: # Contador en rango [1, fin]
+        f = f*i
 
         i = i+1 # De uno en uno
-    return s
+    return f
 
 if __name__ == '__main__':
     os.system('cls')
 
-    ini = int(input('Ingresa ini '))
-    fin = int(input('Ingresa fin '))
+    n = int(input('Ingresa n '))
 
-    s = sumaDesdeIniHastaFin(ini, fin)
+    f = factorial(n)
 
-    print(f's = {s}')
+    print(f'{n}! = {f}')
